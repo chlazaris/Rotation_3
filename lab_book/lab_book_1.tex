@@ -1,0 +1,338 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Daily Laboratory Book
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Frank Kuster (http://www.ctan.org/tex-archive/macros/latex/contrib/labbook/)
+%
+% Important note:
+% This template requires the labbook.cls file to be in the same directory as the
+% .tex file. The labbook.cls file provides the necessary structure to create the
+% lab book.
+%
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing lab book content.
+%
+% HOW TO USE THIS TEMPLATE 
+% Each day in the lab consists of three main things:
+%
+% 1. LABDAY: The first thing to put is the \labday{} command with a date in 
+% curly brackets, this will make a new page and put the date in big letters 
+% at the top.
+%
+% 2. EXPERIMENT: Next you need to specify what experiment(s) you are 
+% working on with an \experiment{} command with the experiment shorthand 
+% in the curly brackets. The experiment shorthand is defined in the 
+% 'DEFINITION OF EXPERIMENTS' section below, this means you can 
+% say \experiment{pcr} and the actual text written to the PDF will be what 
+% you set the 'pcr' experiment to be. If the experiment is a one off, you can 
+% just write it in the bracket without creating a shorthand. Note: if you don't 
+% want to have an experiment, just leave this out and it won't be printed.
+%
+% 3. CONTENT: Following the experiment is the content, i.e. what progress 
+% you made on the experiment that day.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[idxtotoc,hyperref,openany]{labbook} % 'openany' here removes the gap page between days, erase it to restore this gap; 'oneside' can also be added to remove the shift that odd pages have to the right for easier reading
+
+\usepackage[ 
+  backref=page,
+  pdfpagelabels=true,
+  plainpages=false,
+  colorlinks=true,
+  bookmarks=true,
+  pdfview=FitB]{hyperref} % Required for the hyperlinks within the PDF
+  
+\usepackage{booktabs} % Required for the top and bottom rules in the table
+\usepackage{float} % Required for specifying the exact location of a figure or table
+\usepackage{graphicx} % Required for including images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF EXPERIMENTS
+%----------------------------------------------------------------------------------------
+
+\newexperiment{example}{This is an example experiment}
+\newexperiment{example2}{This is another example experiment}
+\newexperiment{example3}{This is yet another example experiment}
+\newexperiment{table}{This shows a sample table}
+%\newexperiment{shorthand}{Description of the experiment}
+
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Use Roman numerals for page numbers
+\title{
+\begin{center}
+\HRule \\[0.4cm]
+{\Huge \bfseries Laboratory Journal \\[0.5cm] \Large Rotation 3}\\[0.4cm] % Degree
+\HRule \\[1.5cm]
+\end{center}
+}
+\author{\Huge Harris A. Lazaris \\ \\ \LARGE lazaris@nyu.edu \\[2cm]} % Your name and email address
+\date{Beginning 10 March 2014} % Beginning date
+\maketitle
+
+\tableofcontents
+
+\mainmatter % Use Arabic numerals for page numbers
+
+%----------------------------------------------------------------------------------------
+%	LAB BOOK CONTENTS
+%----------------------------------------------------------------------------------------
+
+% Blank template to use for new days:
+
+%\labday{Day, Date Month Year}
+
+%\experiment{}
+
+%Text
+
+%-----------------------------------------
+
+%\experiment{}
+
+%Text
+
+%----------------------------------------------------------------------------------------
+
+% \labday{Friday, 25 November 2011}
+
+% \experiment{example}
+
+% \lipsum[1]
+
+%-----------------------------------------
+
+% \experiment{example2} % Multiple experiments can be included in a single day, this allows you to segment what was done each day into separate categories
+
+% \begin{figure}[H] % Example of including images
+% \begin{center}
+% \includegraphics[width=0.5\linewidth]{example_figure}
+% \end{center}
+% \caption{Example figure.}
+% \label{fig:example_figure}
+% \end{figure}
+
+%-----------------------------------------
+
+% \experiment{example3}
+
+% \lipsum[3-5]
+
+%----------------------------------------------------------------------------------------
+
+% \labday{Friday, 26 March 2010}
+
+% \experiment{table}
+
+% \begin{table}[H]
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Groups} & \textbf{Treatment X} & \textbf{Treatment Y} \\
+% \toprule
+% 1 & 0.2 & 0.8\\
+% 2 & 0.17 & 0.7\\
+% 3 & 0.24 & 0.75\\
+% 4 & 0.68 & 0.3\\
+% \bottomrule
+% \end{tabular}
+% \caption{The effects of treatments X and Y on the four groups studied.}
+% \label{tab:treatments_xy}
+% \end{table}
+
+% Table \ref{tab:treatments_xy} shows that groups 1-3 reacted similarly to the two treatments but group 4 showed a reversed reaction.
+
+%----------------------------------------------------------------------------------------
+
+\labday{Monday, 10 March 2014}
+
+\experiment{Collect data concerning the Ren ``Topological domains'' paper.} % You don't need to make a \newexperiment if you only plan on referencing it once
+
+These are the tasks of the day:
+
+\begin{itemize}
+\item Go to GSE35156 on GSE and try to download the matrix
+      data
+\item If you do not find any data there, contact the authors.
+\end{itemize}
+
+The data that we are looking for are the matrices that give all the 
+Hi-C interactions for the cell types that the Ren group used in the study:
+\texttt{Dixon, J. R. et al. Topological domains in mammalian genomes identified by analysis of chromatin interactions. Nature 485, 376–380 (2012)}.
+I went on the website \url{http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE35156} and found that the matrix files listed there are actually
+incomplete as they contain only the headers and not the matrix data. I also
+did a character count to confirm that the size of the file corresponds
+to the headers only and there is not anything else in there, that I missed.
+
+Having proven that the matrix data are not there I e-mailed Bing Ren (biren@ucsd.edu) and the first author of the paper Jesse R. Dixon (j1dixon@ucsd.edu) and requested the processed data concerning the matrices and also 
+the topological domains. Moreover, I requested detailed description of the
+methods used (trimming of the data, binning etc). I cc'ed the e-mail to
+Aris (Tsirigos) as well.
+
+
+
+%-----------------------------------------
+
+
+\labday{Friday, 14 March 2014}
+
+\experiment{Try to calculate Spearman correlation coefficients using HiCNorm} % You don't need to make a \newexperiment if you only plan on referencing it once
+
+These are the tasks of the day:
+
+\begin{itemize}
+\item Download the data from ~\url{http://www.people.fas.harvard.edu/~junliu/HiCNorm}
+\item Play with the data to see if you can calculate any coefficient.
+\item Meet with Aris at 2pm to run the MATLAB code. Anju said that he will be available
+early next week. So, we can start on our own.
+\item Discuss with Aris the requirements of the two proposals:
+	\begin{description}
+		\item [HPC Project] Bash scripting, high-performance computing, parallel jobs? What should I mention on the proposal? He wants us to write a brief discussion on the question, its importance, our approach and how we are going to implement it.
+		\item [Methods Project] We have to start thinking about it too. The code should be placed on ~\texttt{git}. Larry said that it would be great to use some Python 
+		(Scipy, Numpy etc). Also he mentioned that we may need to create a database. What kind of database would be appropriate for our data? 
+	\end{description}
+\end{itemize}
+
+% \experiment{example}
+
+% \lipsum[6]
+
+%-----------------------------------------
+
+\labday{Monday, 17 March 2014}
+
+\experiment{Run MATLAB code with Aris and Anju for HiC evaluation} % You don't need to make a \newexperiment if you only plan on referencing it once
+
+These are the tasks of the day:
+
+\begin{itemize}
+\item Use rep1.mat and rep2.mat as input files for MATLAB.
+\item Meet with Aris and Anju (Skype) at 2pm to run the MATLAB code. 
+\item Discuss with Aris the requirements of the two proposals:
+  \begin{description}
+     \item Discuss with Aris the content of the lab meeting 
+     presentation to start working on it.
+     \item Check for R debugger.
+  \end{description}
+\end{itemize}
+
+\texttt{Useful command to extract the chromosomes only: more .reg+ | cut -f2 | cut -d' '-f1 | sed 's/^chr//' | sed \'s/X/23/\' > ...}
+
+The presentation is going to be on the Hi--C method in general (Focus on
+the Lieberman paper (2009)). Then, the second half will be on the latest 
+Ren paper (Nature 2013). Start working on the presentation today.
+
+The data are available in a centralized location and I have created a soft
+linked to this location (Dekker-Science-2009). In the directory \texttt{run\_dat\_files}
+the script that I wrote today is placed: \texttt{hic\_chr\_by\_chr\_matrix\_comp.R}.
+Moreover the \texttt{chr\_file} which is also in this directory, provides the names
+for the chromosomes (based on 4096KB resolution).
+
+I ran the command:
+{\texttt{Rscript hic\_chr\_by\_chr\_matrix\_comp.R \\
+../Dekker-Science-2009/hiclib/hiclib.GM-rep1-HindIII-HiC/heatmap-res-4096kb.filtered.dat\\
+../Dekker-Science-2009/hiclib/hiclib.GM-rep5-NcoI-HiC/heatmap-res-4096kb.filtered.dat chr_file\\spearman false}}
+
+to calculate the Hi--C correlation between the first replicate
+with HindIII and the replicate 1 with NcoI (for resolution 4096KB):
+
+In the aforementioned example the Spearman correlation is: 0.873 (rounded
+to three decimal places). 
+
+\subsubsection*{Future plans}
+
+\begin{enumerate}
+  \item Make the Rscript output chromosomes and correlation
+  (23 chromosomes and the corresponding correlations) and save
+  to file with name determined by the input files.
+  \item Write an R script that will use the correlations
+  from these files to create boxplots (all boxplots should
+  appear on the same plot).
+  \item Add the electronic lab-book and the scripts to a private
+  repository on GitHub (you may share with Aris).
+  \item Ask the guys again for the non-normalized data
+\end{enumerate}
+    
+% \experiment{example2}
+
+% \lipsum[7]
+
+%---------------------------------------------------------------------------------------
+%	FORMULAE AND MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+% \labday{} % We don't want a date here so we make the labday blank
+
+% \begin{center}
+% \HRule \\[0.4cm]
+% {\huge \textbf{Formulae and Media Recipes}}\\[0.4cm] % Heading
+% \HRule \\[1.5cm]
+% \end{center}
+
+%----------------------------------------------------------------------------------------
+%	MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+% \newpage
+
+% \huge \textbf{Media} \\ \\
+
+% \normalsize \textbf{Media 1}\\
+% \begin{table}[H]
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Compound} & \textbf{1L} & \textbf{0.5L}\\
+% \toprule
+% Compound 1 & 10g & 5g\\
+% Compound 2 & 20g & 10g\\
+% \bottomrule
+% \end{tabular}
+% \caption{Ingredients in Media 1.}
+% \label{tab:med1}
+% \end{table}
+
+%-----------------------------------------
+
+%\textbf{Media 2}\\ \\
+
+%Description
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE
+%----------------------------------------------------------------------------------------
+
+% \newpage
+
+% \huge \textbf{Formulae} \\ \\
+
+% \normalsize \textbf{Formula 1 - Pythagorean theorem}\\ \\
+% $a^2 + b^2 = c^2$\\ \\
+
+%-----------------------------------------
+
+%\textbf{Formula X - Description}\\ \\
+
+%Formula
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
