@@ -306,6 +306,25 @@ Anju's instructions:
 	\item You should get back P which is the normalized (with HiCNorm) version of the matrix that was provided. 
 \end{enumerate}
     
+    Run the following command to create file with chromosome vectors to run with RunExperiment.
+
+\begin{lstlisting}[language=bash]
+cat -n chromosome_vectors/hg19.chr.w\=1024kb.vec\
+| sed 's/$/ + 1 1/'> hg19.chr.w\=1024kb.reg+
+\end{lstlisting}
+
+Very important: When you write BASH scripts, do not include the names of the directories there as it caries in the variable the whole path. Go to the directory you have the files you want to process and create a symbolic link to where the bash script is, in order to be able to run it. Create a subdirectory in the directory you are in order to write the output files there.\\
+
+\newpage
+\textbf{Future plans}
+
+\begin{enumerate}
+	\item Meet Anju tomorrow. Ask him about the pipeline and which were the exact values of the parameters they used in the paper. Also which range of values they used when they tested the parameters.
+	\item Check the Dekker GSE entry. What files they have? Which are biological and which are technical replicates? How did they combine those? In other words how did they end up with the filtered and corrected ones that they finally analysed? Did they combine biological or technical replicates? If yes, how they did it?
+\end{enumerate}
+
+
+
 % \experiment{example2}
 
 % \lipsum[7]
