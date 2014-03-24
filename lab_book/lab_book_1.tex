@@ -56,6 +56,8 @@
 \usepackage{float} % Required for specifying the exact location of a figure or table
 \usepackage{graphicx} % Required for including images
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+% Use the listings package in order to be able to insert code:
+\usepackage{listings}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
@@ -235,22 +237,30 @@ These are the tasks of the day:
   \end{description}
 \end{itemize}
 
-\texttt{Useful command to extract the chromosomes only: more .reg+ | cut -f2 | cut -d' '-f1 | sed 's/^chr//' | sed \'s/X/23/\' > ...}
+Useful command to extract the chromosomes only: 
+
+\begin{lstlisting}[language=bash]
+	more .reg+ | cut -f2 | cut -d' '-f1 | sed 's/^chr//' |\
+	sed \'s/X/23/\' > ...
+\end{lstlisting}
 
 The presentation is going to be on the Hi--C method in general (Focus on
 the Lieberman paper (2009)). Then, the second half will be on the latest 
 Ren paper (Nature 2013). Start working on the presentation today.
 
 The data are available in a centralized location and I have created a soft
-linked to this location (Dekker-Science-2009). In the directory \texttt{run\_dat\_files}
-the script that I wrote today is placed: \texttt{hic\_chr\_by\_chr\_matrix\_comp.R}.
-Moreover the \texttt{chr\_file} which is also in this directory, provides the names
+linked to this location (Dekker-Science-2009). In the directory \texttt{run\_dat\_files} the script that I wrote today is placed:~\texttt{hic\_chr\_by\_chr\_matrix\_comp.R}. Moreover the \texttt{chr\_file} which is also in this directory, provides the names
 for the chromosomes (based on 4096KB resolution).
 
 I ran the command:
-{\texttt{Rscript hic\_chr\_by\_chr\_matrix\_comp.R \\
-../Dekker-Science-2009/hiclib/hiclib.GM-rep1-HindIII-HiC/heatmap-res-4096kb.filtered.dat\\
-../Dekker-Science-2009/hiclib/hiclib.GM-rep5-NcoI-HiC/heatmap-res-4096kb.filtered.dat chr_file\\spearman false}}
+
+\begin{lstlisting}[language=bash]
+	Rscript hic_chr_by_chr_matrix_comp.R 
+	../Dekker-Science-2009/hiclib/hiclib.GM-rep1-HindIII-HiC/
+	heatmap-res-4096kb.filtered.dat
+	../Dekker-Science-2009/hiclib/hiclib.GM-rep5-NcoI-HiC/
+	heatmap-res-4096kb.filtered.dat chr_file spearman false
+\end{lstlisting}
 
 to calculate the Hi--C correlation between the first replicate
 with HindIII and the replicate 1 with NcoI (for resolution 4096KB):
@@ -283,6 +293,17 @@ These are the tasks of the day:
 	\item Discuss with Anju about the method for Hi--C correction.
 	\item Correct the diagram for hiclib 4096kb resolution
 	\item Update the lab book with all the images that you have already generated from the analysis of hiclib data (namely 128kb, 1024kb and 4096kb).
+	\item Follow Anju's instructions
+\end{enumerate}
+
+Anju's instructions:
+
+\begin{enumerate}
+	\item Start with the matrix (.dat file)
+	\item Load the matrix to memory
+	\item Run HiCHarvard.m from MATLAB (ask Aris for the files
+	that HiCHarvard requires (the chrom file, the length file and the GC file).
+	\item You should get back P which is the normalized (with HiCNorm) version of the matrix that was provided. 
 \end{enumerate}
     
 % \experiment{example2}

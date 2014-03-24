@@ -1,6 +1,6 @@
-This is makeindex, version 2.15 [TeX Live 2011] (kpathsea + Thai support).
-Scanning input file lab_book_1.idx....done (6 entries accepted, 0 rejected).
-Sorting entries....done (16 comparisons).
-Generating output file lab_book_1.ind....done (16 lines written, 0 warnings).
+This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
+Scanning input file lab_book_1.idx....done (8 entries accepted, 0 rejected).
+Sorting entries....done (23 comparisons).
+Generating output file lab_book_1.ind....done (21 lines written, 0 warnings).
 Output written in lab_book_1.ind.
 Transcript written in lab_book_1.ilg.

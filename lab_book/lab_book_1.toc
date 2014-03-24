@@ -4,3 +4,5 @@
 \contentsline {experiment}{\numberline {1}Try to calculate Spearman correlation coefficients using HiCNorm}{2}{experiment.2.1}
 \contentsline {chapter}{Monday, 17 March 2014}{3}{chapter*.4}
 \contentsline {experiment}{\numberline {1}Run MATLAB code with Aris and Anju for HiC evaluation}{3}{experiment.3.1}
+\contentsline {chapter}{Monday, 24 March 2014}{5}{chapter*.6}
+\contentsline {experiment}{\numberline {1}Discuss with Anju how to create the pipeline for the correction of filtered.dat files in order to get the corrected.dat}{5}{experiment.4.1}
