@@ -6,8 +6,8 @@
 # and output boxplot with the results)
 
 args <- commandArgs(trailingOnly=T);
-if (length(args)!=6) {
-  cat("USAGE: hicseq_chr_by_chr_matrix_comp MATRIX1 MATRIX2 CHROMOSOME-VECTOR METHOD={pearson,spearman} HEADER={true,false} OUTPUT-FILE\n");
+if (length(args)!=5) {
+  cat("USAGE: hicseq_matrix_comp MATRIX1 MATRIX2 CHROMOSOME-VECTOR METHOD={pearson,spearman} HEADER={true,false}\n");
   quit(save="no");
 }
 
@@ -16,7 +16,7 @@ m2_file <- args[2];
 fc <- args[3];
 cmethod <- args[4];
 header <- args[5];
-of <- args[6] # This is the output file with name specified by user
+#of <- args[6] # This is the output file with name specified by user
 
 
 if (header=="true") {
@@ -32,23 +32,23 @@ if (header=="true") {
  
 
 # Get the unique chromosomes
-chrom <- as.matrix(read.table(fc));
+#chrom <- as.matrix(read.table(fc));
 
-chr_num <- max(chrom);
+#chr_num <- max(chrom);
 
 # Create a vector to store the correlations
-cor_vector <- rep(0, chr_num)
+#cor_vector <- rep(0, chr_num)
 
 # Set the chromosome number in a variable and
 # calculate Hi-C contact correlation for each
 # chromosome and all chromosomes.
 # Set the number of chromosome in a variable:
-c <- 1:chr_num
+#c i <- 1:chr_num
 
-for (i in c) {
-	I <- chrom==i
-	cor_vector[i] <- cor(as.vector(m1[I,I]),as.vector(m2[I,I]),method=cmethod)
-}
+#for (i in c) {
+#	I <- chrom==i
+#	cor_vector[i] <- as.vector(m1[I,I])
+#}
 
 #Create the boxplot to summarise the results
 #pdf(paste(args[1],args[2],".pdf",sep="_"))
@@ -62,10 +62,22 @@ for (i in c) {
 # Report also the summary
 #cat (mean(cor_vector))
 #cat ("\n")
-filename_vector <- rep(of, chr_num) 
-result_matrix <- cbind(c, cor_vector, filename_vector)
+#filename_vector <- rep(of, chr_num) 
+#result_matrix <- cbind(c, cor_vector, filename_vector)
 
 # Write the resulting matrix to a file
-write.table(result_matrix, file=of, sep="\t", quote=F, row.names=F, 
-	col.names=F)
+#write.table(result_matrix, file=of, sep="\t", quote=F, row.names=F, 
+#	col.names=F)
+
+#cat("Mean correlation:\n")
+#mean_cor <- mean(cor_vector)
+#print(mean_cor)
+#cat("Median correlation:\n")
+#median_cor <- median(cor_vector)
+#print(median_cor)
+
+total_cor <- cor(as.vector(m1),as.vector(m2),method=cmethod)
+cat("The total correlation of the matrices is:")
+print(total_cor)
+
 
