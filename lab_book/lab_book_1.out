@@ -6,3 +6,5 @@
 \BOOKMARK [1][-]{experiment.3.1}{Run MATLAB code with Aris and Anju for HiC evaluation}{chapter*.4}% 6
 \BOOKMARK [0][-]{chapter*.6}{Monday, 24 March 2014}{}% 7
 \BOOKMARK [1][-]{experiment.4.1}{Discuss with Anju how to create the pipeline for the correction of filtered.dat files in order to get the corrected.dat}{chapter*.6}% 8
+\BOOKMARK [0][-]{chapter*.7}{March 25 2014}{}% 9
+\BOOKMARK [1][-]{experiment.5.1}{Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero.}{chapter*.7}% 10

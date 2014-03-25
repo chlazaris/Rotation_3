@@ -18,4 +18,9 @@
   \item Try to calculate Spearman correlation coefficients using HiCNorm, 
 		\hyperpage{2}
 
+  \indexspace
+
+  \item Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero., 
+		\hyperpage{7}
+
 \end{theindex}

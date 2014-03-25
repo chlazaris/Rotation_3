@@ -324,10 +324,43 @@ Very important: When you write BASH scripts, do not include the names of the dir
 \end{enumerate}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%NEW DAY%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \experiment{example2}
+\labday{March 25 2014}
+\experiment{Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero.}
 
-% \lipsum[7]
+Tasks of the day:
+
+\begin{enumerate}
+	\item Send to Anju what time to talk tomorrow. He said
+	we can talk tomorrow but he has not given exact time yet.
+	\item Sent e-mail to Mirny lab (more specifically to Anton Goloborodko (golobor@mit.edu)) and asked for the raw data and the processed (after the iterative correction) data used for the creation of contact matrices.
+	\item Modify the R script in order to remove rows and lines that include zeros (the new script is named: ~\texttt{hic\_chr\_by\_chr\_nozero\_cor.R}).
+	\item Siddarth (HiCNorm paper) said that we can download the non-processed data from Lieberman-Aiden. Also for the Dixon et al. paper 
+	he gives the corresponding website.
+\end{enumerate}
+
+The new script was used to produce the summary for the correlation of \texttt{HindIII\_NcoI\_1\_data} (for replicate 1 both for HindIII and NcoI) and both for filtered and corrected.\\
+
+% \begin{lstlisting}[language=bash]
+	
+% \end{lstlisting}
+
+The results are given in the figures that follow. It seems that filtered and corrected have no difference in terms of correlation (when the zeros are removed). There is difference though if we compare the correlation of matrices including the zeros (see previous day, Spearman correlation $\approx 0.7$) with the correlation of matrices without including the zeros (which is actually lower).\\ 
+
+\textbf{Future plans}
+
+\begin{enumerate}
+	\item Discuss with Anju tomorrow (he has not replied about the file requirements though).
+	\item Discuss with Aris the possibility that Anju writes a manual for 
+	the pipeline (reviewers have asked for it anyway and if the software
+	is targeted to biologists, they will certainly need one).
+	\item Do not forget to update Github repository. 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%% END OF DAY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 
