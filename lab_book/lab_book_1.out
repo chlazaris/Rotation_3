@@ -8,3 +8,5 @@
 \BOOKMARK [1][-]{experiment.4.1}{Discuss with Anju how to create the pipeline for the correction of filtered.dat files in order to get the corrected.dat}{chapter*.6}% 8
 \BOOKMARK [0][-]{chapter*.7}{March 25 2014}{}% 9
 \BOOKMARK [1][-]{experiment.5.1}{Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero.}{chapter*.7}% 10
+\BOOKMARK [0][-]{chapter*.8}{March 26th 2014}{}% 11
+\BOOKMARK [1][-]{experiment.6.1}{Create a matrix with all Lieberman-Aiden data}{chapter*.8}% 12

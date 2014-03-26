@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  25 MAR 2014 17:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  26 MAR 2014 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -508,23 +508,26 @@ Overfull \hbox (3.01584pt too wide) in paragraph at lines 354--355
  file re-quire-ments though). 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
 [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 426.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 454.
+ [8
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 454.
  (./lab_book_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 454.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 454.
 Package rerunfilecheck Info: File `lab_book_1.out' has not changed.
-(rerunfilecheck)             Checksum: FBC2FC67BBE167FCE9AD823F0E7F878B;952.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
+(rerunfilecheck)             Checksum: 5EE6CAF59AB4DCFD799292149A5D3D34;1100.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 454.
  ) 
 Here is how much of TeX's memory you used:
- 8388 strings out of 493315
- 127878 string characters out of 6137904
- 356878 words of memory out of 5000000
- 11698 multiletter control sequences out of 15000+600000
+ 8400 strings out of 493315
+ 128040 string characters out of 6137904
+ 356882 words of memory out of 5000000
+ 11701 multiletter control sequences out of 15000+600000
  10200 words of font info for 36 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,8n,52p,421b,1230s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -537,10 +540,10 @@ local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on lab_book_1.pdf (11 pages, 129188 bytes).
+Output written on lab_book_1.pdf (12 pages, 131093 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 62 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

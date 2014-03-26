@@ -8,3 +8,5 @@
 \contentsline {experiment}{\numberline {1}Discuss with Anju how to create the pipeline for the correction of filtered.dat files in order to get the corrected.dat}{5}{experiment.4.1}
 \contentsline {chapter}{March 25 2014}{7}{chapter*.7}
 \contentsline {experiment}{\numberline {1}Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero.}{7}{experiment.5.1}
+\contentsline {chapter}{March 26th 2014}{8}{chapter*.8}
+\contentsline {experiment}{\numberline {1}Create a matrix with all Lieberman-Aiden data}{8}{experiment.6.1}
