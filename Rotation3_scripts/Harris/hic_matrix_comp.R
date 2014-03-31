@@ -2,8 +2,9 @@
 
 # This is an R script that is used
 # for comparison (find correlation
-# between Hi-C contact matrices
-# and output boxplot with the results)
+# between Hi-C contact matrices). It
+# outputs the result to standard output
+# (terminal)
 
 args <- commandArgs(trailingOnly=T);
 if (length(args)!=5) {
