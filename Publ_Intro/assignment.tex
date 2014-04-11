@@ -5,8 +5,9 @@
 \usepackage{microtype}
 \usepackage{amsmath}
 \usepackage{listings}
+\usepackage{cite}
 
-\title{Review existing methods for Hi--C data analysis}
+\title{Review of existing methods for Hi--C data analysis \& some ideas~\ldots}
 \author{H.L}
 \date{\today}
 
@@ -14,59 +15,103 @@
 \maketitle
 
 After a literature review, I collected the following reports 
-describing methods of Hi--C data analysis:
+describing Hi--C data analysis methods:
 	
 \begin{enumerate}
 	\item Peng, C. et al. The sequencing bias relaxed characteristics of Hi-C derived data and implications for chromatin 3D modeling. Nucleic Acids Research 41, e183–e183 (2013).
-
+    
+    \textbf{Method:} It uses a parameter (``sequencing-bias-relaxed'') to deal with biases due to a) differences in sequencing depth, b) different chromatin regions within the same experiment.\\
 	\textbf{Pipeline used:} AutoChrom3D
+							Source code \& 3D models: ~\url{http://ibi.hzau.edu.cn/3dmodel} \\
+	\textbf{Result:} Method for automatic generation of chromatin 3D structure models. Takes into account the aforementioned biases. The authors admit that there is space for improvement.
 
 	\item Zhang, Z., Li, G., Toh, K.-C. \& Sung, W.-K. 3D Chromosome Modeling with Semi-Definite Programming and Hi-C Data. Journal of Computational Biology 20, 831–-846 (2013).
-
-	\textbf{Pipeline used:}
+    
+    \textbf{Method:}\\ A deterministic method which uses ``semi-definite programming techniques'' to fit the observed data.\\
+	\textbf{Pipeline used:} ChromSDE. It is based on RMSD (``root mean square deviation'').\\
+    Source code and instructions: ~\url{http://biogpu.ddns.comp.nus.edu.sg/~zzz/ChromSDE/}.\\
+	\textbf{Result:}\\ They used simulated and real Hi-C data and they claim
+	that their method is more accurate than the existing ones (meaning ChromSDE
+	and BACH). Τhey used Spearman correlation to demonstrate the superiority of the method.
 
 	\item Ay, F., Bailey, T. L. \& Noble, W. S. Statistical confidence estimation for Hi-C data reveals regulatory chromatin contacts. Genome Research (2014). doi:10.1101/gr.160374.113
 
-	\textbf{Pipeline used:}
+    \textbf{Method:} Fit-Hi-C: Statistical confidence estimation that takes into account technical Hi--C biases and polymer looping. \\
+	\textbf{Pipeline used:} A set of Python scripts that can be found on:~\url{http://noble.gs.washington.edu/proj/fit-hi-c}. It accepts as input list of locus pairs and the corresponding counts and output the list with $P$-values and $Q$-values. Corrected maps (after iterative correction for example) can also be used as input.\\
+	\textbf{Result:} It is interesting that while they confirm previously described promoter-enhancer interactions (77\% of the promoter-enhancer interactions mediated by RNApolII for example), they claim that most contacts happen in insulators and heterochromatin regions and not in enhancers and euchromatin regions (differences with Ren paper here?). They also worked
+	on NANOG which is very interesting and they found many contacts mediated by this
+	master regulator in embryonic stems cells.\\
 
 	\item Lu, Y., Zhou, Y. \& Tian, W. Combining Hi-C data with phylogenetic correlation to predict the target genes of distal regulatory elements in human genome. Nucleic Acids Research 41, 10391–-10402 (2013).
 
-	\textbf{Pipeline used:}
+	% (Example of badly-written paper with serious errors (~\emph{specie} is my favorite) getting published in NAR~\lots)
+    
+    \textbf{Method:} They combine phylogenetic information with available Hi-C data to predict interactions of promoters with distal regulatory elements (DREs).\\
+	\textbf{Pipeline used:} No code available.\\
+	\textbf{Result:} No comparisons available with other methods.\\
 
 	\item Hu, M., Deng, K., Qin, Z. \& Liu, J. S. Understanding spatial organizations of chromosomes via statistical analysis of Hi-C data. Quant Biol 1, 156–-174 (2013).
+    
+    \textbf{Method:}Not a new method but a very good review of the existing
+    ones. It also provides a very good description of the method itself, the biases and the statistical challenges. Table 1A gives a comprehensive overview of the current methods for Hi--C data analysis. It mentions pros and cons and
+    the corresponding references as well.\\
+	\textbf{Pipeline used:} - \\
+    \textbf{Result:} - \\
 
-	\textbf{Pipeline used:}
+	\item Hu, M. et al. Bayesian Inference of Spatial Organizations of Chromosomes. PLoS Comput. Biol. 9, (2013).
+
+	\textbf{Method:} A Bayesian probabilistic approach named ``Bayesian 3D constructor for Hi-C data''.\\
+	\textbf{Pipeline used:} BACH and BACH-MIX algorithms created in their study.
+							Account for systematic biases and problems due to 
+							differences in sequencing depth.\\
+	\textbf{Result:} Successful detection of euchromatic--heterochromatic regions.\\
+					 Demonstrated superiority of these algorithms when compared with MCMC5C algorithm, as the results from BACH and BACH-MIX agree more with FISH data.\\
 
 	\item Imakaev, M. et al. Iterative correction of Hi-C data reveals hallmarks of chromosome organization. Nat Meth 9, 999–-1003 (2012).
-
-	\textbf{Pipeline used:}
+    
+    \textbf{Method:} Iterative correction and eigenvector decomposition (ICE).
+    An iterative normalization method is used. It 
+    is not biologically relevant though as it assumes ``equal visibility''
+    of all loci, which cannot be the case.\\
+	\textbf{Pipeline used:} Software (Python code) is available on ~\url{https://bitbucket.org/mirnylab/hiclib}.\\ 
+	\textbf{Result:} - \\
 
 	\item Yaffe, E. \& Tanay, A. Probabilistic modeling of Hi-C contact maps eliminates systematic biases to characterize global chromosomal architecture. Nature Genetics 43, 1059–-1065 (2011).
-
-	\textbf{Pipeline used:}
+    
+    \textbf{Method:} An integrated probabilistic background model.
+    				   Takes into account GC bias, mappability problems and the
+    				   distance between restriction sites.\\ 
+	\textbf{Pipeline used:} The corresponding Hi-C pipeline (hicpipe) is available on:~\url{http://compgenomics.weizmann.ac.il/tanay/?page_id=283}\\
+	\textbf{Result:} This method removes the aforementioned biases but
+	it has a major disadvantage: it is very slow.\\
 
 	\item Hu, M. et al. HiCNorm: removing biases in Hi-C data via Poisson regression. Bioinformatics 28, 3131–-3133 (2012).
-
-	\textbf{Pipeline used:}
+    
+    \textbf{Method:}\\ Much simplified normalization method when compared with that of Yaffe et al. (see above). It uses a generalized linear model and it corrects the same biases mentioned above.
+	\textbf{Pipeline used:} Available on: http://www.people.fas.harvard.edu/~junliu/HiCNorm/.\\ 
+    \textbf{Result:} $>1000$ times faster than Yaffe ~\emph{et al.}\\
 
 	\item Jin, F. et al. A high-resolution map of the three-dimensional chromatin interactome in human cells. Nature 503, 290–-294 (2013).
+    
+    \textbf{Method:} - \\
+	\textbf{Pipeline used:} - \\
+	\textbf{Result:} - \\
 
-	\textbf{Pipeline used:}
 \end{enumerate}
 
 \newpage
 
-\textbf{Questions to answer}\\
+\textbf{Interesting Questions}\\
 
 \begin{description}
-	\item [Idea 1] Gene content per chromosome (in terms of active genes) and gene interactions. (You have more ~\emph{cis} than ~\emph{trans} interactions).
+	\item [Idea 1] Gene content per chromosome (in terms of active genes) and gene interactions. (You have more \emph{cis} than \emph{trans} interactions).
 	\item [Idea 2] To challenge the so-called ``transcription factories''. If ``transcription
 	factories'' exist, given that the vast majority of 3D chromosomal interactions are ~\emph{cis} interactions, the co-regulated genes should tend to be on the same chromosome. While this could be true in certain cases, I am pretty sure
-	that there are genes on different chromosomes that are regulated by the same factor. Also mobility of chromatin in the nucleus is rather limited (see Spector and also Soutoglou publications). The ``transcription factory'' model could potentially apply in certain cases of master regulators (KLF-1 for example) (see
-	Schoenfelder paper) but it is probably not the rule. 
-	\item [Idea 3] Mentioned by Misteli ~\cite{Misteli:2012ea}. Hi-C data refer to populations. This may obscure the relationship of 3D chromatin structure and function. Even in the same population of cells, there are cells expressing a gene
-	and others that do not (Mention the recent Spector paper on monoallelic expression here). What is the difference in the chromatin structure though when certain genes are expressed vs. when they are not? The recent development of single-cell Hi-C (if it really works as advertised)~\cite{Nagano:2013gja} may help answer this question. 
-	\item [Idea 4] The ``kill many birds with one stone'' hypothesis. If we suppose that co-regulated genes (by master transcription factors) are truly in close proximity in 3D space, a favorite and very economical --in terms of changes required-- strategy in cancer would be to create master regulator behavior where it does not exist and mess up many genes all together. This could be done by fusing the activation-domain of a master regulator with the binding domain of an abundant transcription factor.
+	that there are genes on different chromosomes that are regulated by the same factor. Also mobility of chromatin in the nucleus is rather limited \cite{Soutoglou:2007gl,Kumaran:2008jd}. The ``transcription factory'' model could potentially apply in certain cases of master regulators (KLF-1 for example)~\cite{Schoenfelder:2010ij} but it is has clearly not been established that it is the rule. 
+	\item [Idea 3] Mentioned by Misteli ~\cite{Misteli:2012ea}. Hi-C data refer to populations. This may obscure the relationship of 3D chromatin structure and function. Even in the same population of cells, there are cells expressing a gene and others that do not. What is the difference in the chromatin structure though when certain genes are expressed vs. when they are not? The recent development of single-cell Hi-C (if it really works as advertised)~\cite{Nagano:2013gja} may help answer this question. 
+	\item [Idea 4] The ``kill many birds with one stone'' hypothesis. If we suppose that co-regulated genes (by master transcription factors) are truly in close proximity in 3D space, a favorite and very economical --in terms of changes required-- strategy in cancer would be to create master regulator behavior where it does not exist and mess up many genes all together. This could be done by fusing the activation-domain of a master regulator with the binding domain of an abundant transcription factor (Aris).
+	\item [Idea 5] Mentioned by Iannis during the lab meeting on ~\today. To check if there are enhancers that control the expression of genes that reside on different chromosomes. Panos mentioned that Thanos has shown it with NF-kappaB.
+	You may want to ask Panos about the exact publication. Bryan also mentioned that a nice experiment would be to check chromatin structure changes upon cell differentiation. Would monoallelic expression be a nice system for that? Based on what Spector published earlier this year~\cite{EckersleyMaslin:2014hq}, embryonic stem cells tend to express both alleles while mature cells (at least neurons) tend to express one of the two alleles. If this is the case with cells of the immune system as well, the chromatin structure of the precursors and the mature cells could be checked in order to check if differences in chromatin structure explain the difference in expression. Advantage: Βy showing differences between alleles we are sure that we are talking about the same cells (same environment). Disadvantage: Hi--C experiments have to be performed in the lab (so cells of the immune system have to be used as model). 
 \end{description}
 
 % Bibliography
