@@ -1,0 +1,42 @@
+### Date: April 14th 2014
+### Title: Creating a script to convert Ren data (from Nature 2013 paper) to the appropriate format to be used by genomic_tools 
+
+<!-- What to do -->
+
+#### What to do
+
+1. Install genomic_tools on the cluster
+2. Write a script to turn .txt Hi-C files to reg.gz files
+3. Think about the next steps for producing matrices and
+heatmaps using the Ren data.
+
+<!-- **Bold text**  *Emphasized text* -->
+
+<!-- Non-enumerated list -->
+
+* I download the source code for genomic_tools from 
+`https://code.google.com/p/ibm-cbc-genomic-tools/source/checkout`  and then I installed it locally based on the instructions. I also
+set up the $PATH to be able to call any of the commands of the package from anywhere.
+The version installed is 2.8.0 which includes the code for hic analysis. Type
+`gtools_hic -h` any time help for the possible options is required.
+
+* I wrote a script named `txt_to_reg.sh` which reads the .txt files in the current directory and converts them to the .reg format. The script is placed in the **Scripts** directory in my home directory on the cluster.
+
+* In order to perform the binning (split each chromosome in 1MB chunks)
+  I will use genomic_tools. The syntax is shown below (with the first of the .gz files as input):
+  
+	`gtools_hic bin --bin-size 1000000 -v reg.gz`
+  
+	where:
+  
+	- gtools_hic bin is the command for the binning
+	-  --bin-size: is the size of each bin (default 1MB)
+	- -v: verbose
+
+* Caution: Use *gunzip* when you want to unzip something and *gzip* when you want to compress it.
+
+Moreover, from now on I will be writing the lab-book in Markdown as it is much easier than LaTeX in terms of placing URLs and code in-line with the text. 
+
+For this reason I added the current document to my private repository on GitHub and this is the document I will be modifying every day.
+
+<!--End of the day-->
