@@ -40,3 +40,100 @@ Moreover, from now on I will be writing the lab-book in Markdown as it is much e
 For this reason I added the current document to my private repository on GitHub and this is the document I will be modifying every day.
 
 <!--End of the day-->
+
+<!-- Start day -->
+
+### Date: April 16th 2014
+### Title: Create matrices of different resolutions using Ren's Nature 2013 data
+### and also test the Python *hic_to_matrix* script when using the right input
+### (file that corresponds to bins when having 100MB resolution). 
+
+#### What to do 
+
+1. Write a bash script to automate matrix creation based on Aris' gtools
+2. Check your Python script with the right input to see if it works. Change
+it to handle bed files properly if you can.
+3. You have to start working on the table reviewing all Hi-C papers as well.
+
+<!-- **Bold text**  *Emphasized text* -->
+
+<!-- Non-enumerated list -->
+
+* I used `gtools_hic bin --bin-size 100000000 -v GSM1055800_HiC.IMR90.rep1.nodup.summary.reg.gz | head > GSM1055800_HiC.IMR90.rep1.nodup.summary.head.txt` in order to create
+that dummy file that I will used as input to my script. The resolution in this
+case is correct to compare with Aris .dat file (100MB)
+* Indeed, I used the command `cat GSM1055800_HiC.IMR90.rep1.nodup.summary.reg.gz | gunzip | head -10 | gtools_hic bin -v --bin-size 100000000 > 100MB_input` to produce the correct input to use on my script. It is worth mentioning here that head somehow produces only the 5 first lines! When I compared the 100MB_input.dat (matrix generated using my script) with out\_100MB.dat (matrix generated using Aris' method) they were identical (see diff below)!
+* As Aris said, I generated the matrices using his method for the following
+resolutions 500KB, 1MB, 5MB, 100MB (I also did 256KB, 1024KB, 4096KB to be able to compare
+with previous boxplots). All data and the results of this analysis can be found on cluster in
+`Ren-Nature2013a`.  
+
+
+# Date: April 17th 2014
+## Title: Improving the hic\_to\_matrix.py and timing it. 
+
+<!-- What to do -->
+
+1. Add functionality to hic\_to\_matrix.py
+2. Time it vs. Aris' C++ implementation
+
+
+<!-- **Bold text**  *Emphasized text* -->
+
+<!-- Non-enumerated list -->
+
+* I made it possible to read standard input
+and get rif of the intermediate file that I was
+producing. So, now the script does not depend at
+all on Aris' pipeline
+* I performed a timing of the execution of my script
+vs. Aris' implementation
+* The results can be found in the `time_hic_to_matrix`
+directory in `Ren_Nature_2013a` on the cluster. 
+
+# Date: April 21st 2014
+## Title: Checking Aris' method when using 50kb resulution.
+
+<!-- What to do -->
+
+1. When Aris' method was used with 1024kb and 4096kb resolution, the correlations we get are extremely high
+no matter how different the samples were. So, we decided
+to try with 50kb resolution.
+2.
+3.
+
+<!-- **Bold text**  *Emphasized text* -->
+
+<!-- Non-enumerated list -->
+
+* I created the 50k resolution matrix corresponding to the first sample using the command given below:
+`cat GSM1055800_HiC.IMR90.rep1.nodup.summary.reg.gz | gunzip | gtools_hic bin -v --bin-size 50000 --matrix > GSM1055800_HiC.IMR90.rep1.nodup.summary.50000.dat`
+
+*SOS* This is wrong, I had to include the genome as well. So,
+the correct command is:
+
+`cat GSM1055800_HiC.IMR90.rep1.nodup.summary.reg.gz | gunzip | gtools_hic bin -v --bin-size 50000 -g hg19.genome.bed --matrix > GSM1055800_HiC.IMR90.rep1.nodup.summary.50000.dat`
+
+
+* Then in order to create the corresponding .Rdata file:
+`Rscript hic_matrix.r estimate -v --algorithm fused1d_flsa --gamma 2 --lambda 2 -o GSM1055800_HiC.IMR90.rep1.nodup.summary.50000.RData -C hg19.w=50000.bed GSM1055800_HiC.IMR90.rep1.nodup.summary.50000.dat`
+
+*Caution* The .bed matrix can be used directly. There is no need to isolate the first line and create the corresponding vector.
+
+**Problems**
+
+* For some reason the matrices are not created corrected
+while I have the option matrix there.
+
+OK, this problem is now solved. I had not put the genome file
+(the option -g hg19.genome.bed).
+
+* Is the hic_matrix.r file I am using good enough to handle the extra (1D) option? Yes, because Aris updated the file today.
+
+<!-- Code goes here -->
+<!-- ``
+ -->
+<!-- Link goes here -->
+<!-- This is [an example](http://example.com/ "Title") inline link.
+ -->
+
