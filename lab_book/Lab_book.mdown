@@ -137,3 +137,49 @@ OK, this problem is now solved. I had not put the genome file
 <!-- This is [an example](http://example.com/ "Title") inline link.
  -->
 
+ # Date: 24-25 April 2014
+ ## Title: Running Case 1 - Lasso without sparsity: Three resolutions
+ ## (10kb, 100kb, 1MB) for Dekker-2009 data and Ren-2012 (topological
+ ## domains) data.
+ 
+ <!-- What I did -->
+ 
+ 1. Run `create_chrom_matrices` script that Aris wrote in order to do the 
+ 	binning (10kb, 100kb, 1MB). For this purpose I wrote the scripts `run_chrom_matrices_Ren.sh` and `run_chrom_matrices_Dekker.sh`.
+ 	These scripts take as input the name of the restriction enzyme used
+ 	for Hi--C and the resolution that we want for binning (in bp).
+    They are run from the directory of the resolution and as output they
+    have new directories where all the chromosome matrices will be placed.
+
+
+ 2. Run `hic_matrix.r` script that Aris wrote to do the estimation. For this 
+ 	purpose, I wrote the `run_hic_matrix.sh` script. The script requires
+ 	as argument the name of the directory where the matrix files are placed.
+ 	The result of running this will be to create new files with the name 
+ 	`estimated.chr_name.dat` files in the same directory where the matrix
+ 	files are.
+ 
+ 3. In this third step the comparison is performed using `hic_matrix.r compare`
+    (option of teh .R script Aris wrote). For this purpose, I wrote a bash 
+    script called `compare_RData.sh` which accepts as arguments the names of the
+    two directories that contain the files I want to perform the comparison with and
+    as third argument F which is a number from 0 to 1 corresponding to the fraction 
+    of the image we want to output (0 for no image, 1 for the whole chromosome).
+    The output is a directory with all the comparisons eg. `compare.hg19.GM-HindIII-HiC.vs.hg19.GM-NcoI-HiC`. The comparisons are .pdf files (at the moment 2 page-long files) with gamma vs lambda plots and the corresponding Pearson and Spearman coefficients as well as heatmaps (on second page).
+
+    The bash scripts I wrote will be put in my personal private repository on GitHub for safety.
+ 
+ **Future directions**  
+ 
+ <!-- Non-enumerated list -->
+ 
+ * Complete the same analysis
+   with 10kb resolution and again 
+   for chromosome one
+ * Do the binning for the most recent
+   Ren data and start performing the
+   same analysis.
+ 
+ 
+ 
+
