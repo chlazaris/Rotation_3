@@ -10,3 +10,5 @@
 \contentsline {experiment}{\numberline {1}Write and run script that calculates correlations for Hi-C contact matrices after removing lines and columns that sum to zero.}{7}{experiment.5.1}
 \contentsline {chapter}{March 26th 2014}{8}{chapter*.8}
 \contentsline {experiment}{\numberline {1}Create a matrix with all Lieberman-Aiden data}{8}{experiment.6.1}
+\contentsline {chapter}{Tuesday 8 April 2014}{9}{chapter*.9}
+\contentsline {experiment}{\numberline {1}Plan for the next month}{9}{experiment.7.1}
