@@ -182,9 +182,9 @@ OK, this problem is now solved. I had not put the genome file
 
 <!-- BEGIN OF DAY -->
 
- # Date: May 7th 2014
- ## Title: Running experiments with gamma=0 and resolution 100kb
- only for chromosome 1.
+### Date: May 7th 2014
+#### Title: Running experiments with gamma=0 and resolution 100kb
+#### only for chromosome 1.
  
  <!-- What to do -->
  
@@ -237,11 +237,44 @@ correlations and heatmaps (DO NOT FORGET TO PUT -f 1)
   2. HindIII.random vs. NcoI.random
   3. HindIII.complete.random vs. NcoI.complete.random
 
+<!-- END OF DAY -->
+ 
+<!-- BEGIN DAY -->
 
+### Date: May 8th 2014
+#### Title: Running lasso (using the fused1Dalt algorithm) with lambda between 0 and 10000 (n=100) and using logarithmic scale for lambda.
+
+**Do not forget to change the scale back to normal if you do not want logarithmic anymore**
+
+<!-- What to do -->
+
+I changed the `run_hic_matrix.sh` accordingly in order to be able to define the necessary parameters. As it is, I can specify the target directory, the preprocess, the value of maximum lambda, the number of different lambda (n) and the algorithm that is used (fused1Dalt_flsa)
+in this case. For today I also added the option for plotting lambda in logarithmic scale. The commands I ran are given below, along with the corresponding timestamps.
+
+`826  08/05/14 13:25:57 qsub /ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Scripts/run_hic_matrix.sh mm10.mESC_J1-HindIII-HiC chr1 none 10000 100 fused1Dalt_flsa`
+
+`827  08/05/14 13:26:22 qsub /ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Scripts/run_hic_matrix.sh mm10.mESC_J1-NcoI-HiC chr1 none 10000 100 fused1Dalt_flsa`
+
+` 828  08/05/14 13:26:44 qsub /ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Scripts/run_hic_matrix.sh mm10.mESC_J1-HindIII-HiC-random chr1 none 10000 100 fused1Dalt_flsa`
+
+`829  08/05/14 13:26:57 qsub /ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Scripts/run_hic_matrix.sh mm10.mESC_J1-NcoI-HiC-random chr1 none 10000 100 fused1Dalt_flsa`
+<!-- Non-enumerated list -->
+
+I also successfully wrote a matlab function (placed in `random_matrix_matlab` directory on desktop). While the function
+definetely works correctly, the unshuffled matrix and the resulting
+random matrix (after running the script) have different sizes. I have to discuss it with Aris and find out what is going wrong (if any).
+
+The results of today's analysis can be found in:
+`/ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Comparisons/preprocess.none/resolution.100kb/gamma0/log2.lambda/lambda_max_10000/n_lambda_100/chr1`
+
+<!-- Code goes here -->
+<!-- `` -->
+
+<!-- Link goes here -->
+
+<!-- This is [an example](http://example.com/ "Title") inline link. -->
 
 
 <!-- END OF DAY -->
- 
- 
  
 
