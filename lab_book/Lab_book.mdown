@@ -261,20 +261,74 @@ in this case. For today I also added the option for plotting lambda in logarithm
 <!-- Non-enumerated list -->
 
 I also successfully wrote a matlab function (placed in `random_matrix_matlab` directory on desktop). While the function
-definetely works correctly, the unshuffled matrix and the resulting
+definitely works correctly, the unshuffled matrix and the resulting
 random matrix (after running the script) have different sizes. I have to discuss it with Aris and find out what is going wrong (if any).
 
 The results of today's analysis can be found in:
 `/ifs/home/cl3011/ROTATION_3/Evaluation/Case1/Comparisons/preprocess.none/resolution.100kb/gamma0/log2.lambda/lambda_max_10000/n_lambda_100/chr1`
 
-<!-- Code goes here -->
-<!-- `` -->
-
-<!-- Link goes here -->
-
-<!-- This is [an example](http://example.com/ "Title") inline link. -->
-
-
 <!-- END OF DAY -->
  
+
+# Date: May 21 2014
+## Title: Summary of the work done on Panos Hi-C data on CUTLL in the last 2 weeks
+
+<!-- What to do -->
+
+1. Matrices were created from filtered reads using `create_chrom_matrices`. We are
+interested in two resolutions (100kb and 1MB).
+
+The datasets used for the creation of the matrices (CUTLL.control.GSI and CUTLL.HiC)
+were the following:
+
+**Give me back the files that much the pattern (these are the GSI ones)**
+X1=$(ls -1 `Panos_data/run-*/analysis/hiclib/hiclib.CUTLL1-*/filtered_reads.reg+` | grep "GSI.-rep.-HiC/filtered_reads.reg+$")
+
+echo $X1
+
+`Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-GSI1-rep1-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-GSI1-rep2-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-GSI2-rep1-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-GSI2-rep2-HiC/filtered_reads.reg+`
+
+**Give me back the files that do not match the pattern (grep -v)**
+X2=$(ls -1 `Panos_data/run-*/analysis/hiclib/hiclib.CUTLL1-*/filtered_reads.reg+` | grep -v "GSI.-rep.-HiC/filtered_reads.reg+$")
+
+echo $X2
+
+`Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep1-DMSO-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep1-GSI2h-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep1-GSI-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep2-DMSO-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep2-GSI2h-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep2-GSI6h-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2012-06-XX/analysis/hiclib/hiclib.CUTLL1-rep2-GSI-HindIII-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-DMSO-rep1-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-DMSO-rep2-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-UNTREATED-rep1-HiC/filtered_reads.reg+ Panos_data/run-2013-09-XX/analysis/hiclib/hiclib.CUTLL1-UNTREATED-rep2-HiC/filtered_reads.reg+`
+
+Based on these, the matrices were created.
+
+
+
+2. I added functionality to the script `hic_matrix.R` that Aris wrote, in order to create
+heatmaps for certain areas. This can be done using a command like the one shown below:
+
+`./Scripts/hic_matrix.R heatmap -o chr8_120651665-136046022_dif_heatmap.pdf -l chr8:120651665-136046022 -r 100000 resolution.100kb/CUTLL.HiC/ resolution.100kb/CUTLL.control.GSI/`
+
+3. I also added a function to `hic_matrix.R` in order to calculate differences between
+two input matrices (the script is called `hic_matrix_new_dif.R`). In order to calculate the
+difference between two matrices (in the current version the difference is calculated
+as the fraction `normalized_matrix1+epsilon/normalized_matrix2+epsilon`) (not log2).
+
+Then estimation is performed as usual:
+
+<!-- Code goes here -->
+`qsub ../../Scripts/run_hic_matrix.sh CUTLL.HiC.vs.CUTLL.control.GSI.dif none 10000 100 fused1Dalt_flsa`
+
+A git repository was created with all the scripts of the rotation so far.
+It will also be used for the scripts of the PhD in the future. The repository
+is on the cluster (Scripts directory in Case1) and its address on the web is: <https://chlazaris@bitbucket.org/chlazaris/cluster_scripts.git>.
+
+**Future plans**  
+
+* Make a clear timeline on the expectations for the project and
+what to do, when. 
+* Modify the hic_matrix script in order to be able to create
+heatmaps for specific chromosome locations based on the .RData
+files (the products of the estimation).
+* Meet with Iannis and Aris at 12pm on Friday in order to
+discuss project so far and future plans.
+
+<!-- END OF DAY -->
+
+
 
