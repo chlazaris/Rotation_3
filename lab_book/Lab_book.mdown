@@ -330,5 +330,37 @@ discuss project so far and future plans.
 
 <!-- END OF DAY -->
 
+# Date: May 22 2014
+## Title: Analysing the results of the fold difference (RPKM) for 1MB
+## (Panos' data CUTLL.HiC.vs.CUTLL.control.GSI)
+
+<!-- What to do -->
+**Observations**
+
+1. It appears that chr7 has a small area that should
+be the centromere while chr9 has a large one. Based on a search that
+I made though, this does not seem to be the case
+as on `http://genome.ucsc.edu/cgi-bin/hgTables` and by searching with
+`AllTables:gap` (for hg19), the centromeres for all chromosomes should 
+be 3Mbp in size. I am wondering what I am going to see
+with the overall heatmap for 10MB resolution. 
+
+I also analysed the results (RPKM normalization and production of heatmaps) for 10MB resolution. The script for doing it (for HiC which is actually DMSO vs. GSI can be found in the `Scripts` directory on the cluster).
+
+<!-- **Bold text**  *Emphasized text* -->
+
+<!-- Non-enumerated list -->
+
+<!-- *
+*
+*
+*
+ -->
+<!-- Code goes here -->
+<!-- `` -->
+
+<!-- END OF DAY -->
+
+
 
 
