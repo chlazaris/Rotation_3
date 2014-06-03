@@ -347,17 +347,34 @@ with the overall heatmap for 10MB resolution.
 
 I also analysed the results (RPKM normalization and production of heatmaps) for 10MB resolution. The script for doing it (for HiC which is actually DMSO vs. GSI can be found in the `Scripts` directory on the cluster).
 
-<!-- **Bold text**  *Emphasized text* -->
 
-<!-- Non-enumerated list -->
+<!-- BEGINNING OF DAY -->
 
-<!-- *
-*
-*
-*
- -->
-<!-- Code goes here -->
-<!-- `` -->
+# Date: June 2 2014
+## Recreating the matrices for Ren 2012 data (mm10 and 100kb)
+## and running new versions of R and MATLAB randomization
+## scripts that can work for all matrices in a directory
+
+As I accidentally deleted the matrices as well and not only
+the estimations (as I should), I recreated the 100kb resolution
+matrices for both HindIII and NcoI for the Ren-2012 data.
+
+The matrices are located in `Evaluation/Ren-2012/` and then
+there are two subdirectories (one for each enzyme). In those
+subdirectories, there are three subsubdirectories: `matrix`,
+`random.matrix` and `complete.random.matrix`. The first one
+contains the original matrices, the second the randomized
+version of the matrices where only the diagonals have been
+randomized and the last one, the completely randomized diagonals.
+
+I did this procedure both for HindIII and NcoI and I also 
+started creating the 10kb resolution matrices, which will
+apparently take a while. 
+
+I also run `hic_matrix.v.1.0` with settings `max-gamma=1000`,
+`n-gamma=100` and algorithm `fused1Dsymm_flsa` both for HindIII
+and NcoI, so tomorrow I will be able to do the comparisons and
+create the corresponding heatmaps.
 
 <!-- END OF DAY -->
 
