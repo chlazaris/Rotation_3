@@ -378,6 +378,57 @@ create the corresponding heatmaps.
 
 <!-- END OF DAY -->
 
+### Date: June 17th 2014
+### Title: Running fused1Dsymm_flsa and fused2D_flsa successfully
+### with 10MB resolution
+
+<!-- What to do -->
+
+1. Run fused1Dsymm_flsa and fused2D_flsa
+2. Compare the results
+3. Create 5MB matrices and try to repeat
+the same there.
+
+Initially there was a problem with my quota
+and I was getting an error (Eqw). Stratos solved
+this issue (at least for now) by doubling my 
+quota. Once the issue was resolved, the randomization
+(diagonals only) (`run_randomize_matrix.sh`) and 
+complete randomization (`run_compl_randomize.sh`) worked
+extremely fast for the 10MB resolution. The estimation
+worked fast as well, both for fused1Dsymm_flsa and 
+fused2D_flsa. The results seem to be strikingly good
+so far, as the objective functions (error) are identical.
+I performed the analysis for fraction of the genome matrix
+(f-value=0.1) and there is structure there as well (it is 
+not that everything looks the same).
+
+I am trying to perform the same procedure for 5MB but will
+`fused1Dsymm_flsa` works really fast, `fused2D_flsa` takes
+particularly long time to run. Right now I am running on regular
+node. If I face any memory issues, I will try to run it on highmem
+as well.
+
+I also modified the scripts `run_hic_matrix.sh` and `compare_RData.sh`
+in order to use the new updateable `hic_matrix.r` version that I have
+git-cloned in my home dir on the cluster. Moreover the new versions
+of the scripts include the algorithm name to the directory name with the 
+estimations.
+
+*Future directions*
+
+1. Try to run fused2D successfully for finer
+resolutions to see if we can substitute it with
+fused1Dsymm without issues.
+2. Start writing the paper. 
+
+<!-- END OF DAY -->
+
+
+
+
+
+
 
 
 
