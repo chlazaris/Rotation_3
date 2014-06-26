@@ -424,6 +424,37 @@ fused1Dsymm without issues.
 
 <!-- END OF DAY -->
 
+# Date: June 26th 2014
+## Title: Generating Hi-C interaction text files (HiC) and visualizing 
+## the interactions on UWash Epigenome Browser.
+
+<!-- What to do -->
+
+1. The scripts `run_Panos_hic.sh` and `create_genome_matrix` were created
+for this purpose. The former is calling the latter in order to create
+a text file that contains the Hi-C interaction pairs along with the corresponding scores (number of interactions).
+2. I solved how to create the heatmap on UWash Epigenome Browser. It seems
+that all the interactions are needed and also I have to upload the file
+as text but from the `custom tracks` menu.
+
+**Below the first successful Hi-C data representation is shown. I have 
+uploaded the sample for CUTLL GSI and for resolution 1MB. The area has been
+zoomed in such a way that "domains" are visible.**  
+
+<!-- Non-enumerated list -->
+**Future plans**
+
+* There is an issue with speed. It takes forever 
+to upload the data. It worked for 1MB resolution
+but there was problem with 100kb.
+* This will be a problem when Panos gets more reads
+as well.
+* This probably means that we have to test with the
+other format as well. It is probably way more efficient.
+
+<!-- END OF DAY -->
+
+
 
 
 
