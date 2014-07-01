@@ -454,10 +454,50 @@ other format as well. It is probably way more efficient.
 
 <!-- END OF DAY -->
 
+# Date: June 30 2014
+## Title: Successful creation of online session with 
+## Panos's CUTLL Hi-C data
 
+<!-- What to do -->
 
+1. Created .gz and .gz.tbi (index) files using Aris's new
+script that performs conversion and sorting
+2. I changed my create_genome_hic script to use Aris's new
+script.
+3. We created with Eric (Peskin) a directory called epigenome
+within aifantislab sequencing results. The directory is password
+protected and I put inside all 6 samples from the CUTLL data 
+(2 resolutions (100kb and 1000kb), 3 files per resolution).
 
+In order to avoid issues with other labs being able to see the data
+we used a very basic type of "cryptography" giving useless names to
+the files. Here you can find the key between fake and real names:
 
+**Key**  
+
+* Sample1:   CUTLL.DMSO.1000kb
+* Sample2:   CUTLL.GSI.1000kb
+* Sample3:   CUTLL.post-GSI.1000kb
+* Sample4:   CUTLL.DMSO.100kb
+* Sample5:   CUTLL.GSI.100kb
+* Sample6:   CUTLL.post-GSI.100kb
+
+The URLs given to the epigenome browser were the following ones:
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample1.washu.tsv.gz
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample2.washu.tsv.gz
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample3.washu.tsv.gz
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample4.washu.tsv.gz
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample5.washu.tsv.gz
+
+https://nyuepi:bl00045nyuepi@genome.nyumc.org/results/aifantislab/epigenome/panos-final/sample6.washu.tsv.gz
+
+The session was called "Shrek the ogre" and the link for the
+session is: http://epigenomegateway.wustl.edu/browser/?genome=hg19&session=yyat2zctUi&statusId=1868751362
 
 
 
